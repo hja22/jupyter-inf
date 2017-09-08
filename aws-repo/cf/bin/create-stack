@@ -1,0 +1,10 @@
+#!/usr/bin/env bash -e
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+aws cloudformation create-stack \
+  --stack-name test-stack \
+  --template-body file://${DIR}/../ds-inf.yml \
+  --parameters ParameterKey=KeyName,ParameterValue=hja22-aws-london ParameterKey=InstanceType,ParameterValue=t2.medium \
+  --tags Key=Namespace,Value=DS \
+  --timeout-in-minutes 10 \
+  --role-arn arn:aws:iam::849361701319:role/CF-DS-ServiceRole

@@ -1,0 +1,2 @@
+#!/usr/bin/env bash -e
+aws cloudformation delete-stack --stack-name test-stack
