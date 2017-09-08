@@ -1,0 +1,11 @@
+#!/usr/bin/env bash -e
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# could have a --use-previous-template version too
+
+aws cloudformation update-stack \
+  --stack-name test-stack \
+  --template-body file://${DIR}/../ds-inf.yml \
+  --parameters ParameterKey=KeyName,UsePreviousValue=true ParameterKey=InstanceType,UsePreviousValue=true
+
+
