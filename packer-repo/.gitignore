@@ -5,4 +5,4 @@ packer_cache/
 *.box
 
 # vendored cookbooks
-cookbooks/
+vendor/cookbooks/

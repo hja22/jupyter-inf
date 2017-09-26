@@ -24,12 +24,16 @@
 
   "provisioners": [
     {
+      "type": "shell-local",
+      "command": "rm -rf {{template_dir}}/vendor/cookbooks/* && berks vendor -b {{template_dir}}/cookbooks/jupyter-wrapper/Berksfile {{template_dir}}/vendor/cookbooks"
+    },
+    {
       "type": "chef-solo",
       "cookbook_paths": [
-        "{{template_dir}}/cookbooks"
+        "{{template_dir}}/vendor/cookbooks"
       ],
       "run_list": [
-        "jupyter::default"
+        "jupyter-wrapper::default"
       ]
     }
   ]
